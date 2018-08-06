@@ -1,20 +1,11 @@
-import { createSwitchNavigator } from 'react-navigation';
-// screens
+import UserScreen from './screens/mainScreen';
 import MainScreen from './screens/mainScreen';
-import UserScreen from './screens/userScreen';
 
-export const rootNav = createSwitchNavigator({
-  SignedOut: {
-    screen: MainScreen
-  },
-  SignedIn: {
-    screen: UserScreen
+
+export const rootNav = (route) => {
+  if (route == 'user') {
+    return <UserScreen/> ;
+  } else if (route == 'main') {
+    return <MainScreen/> ;
   }
-},
-  {
-    headerMode: 'none',
-    title: 'Main',
-    initialRouteName: 'SignedOut'
-  }
-);
-     
+}
