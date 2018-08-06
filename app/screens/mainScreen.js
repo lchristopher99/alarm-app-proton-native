@@ -15,7 +15,6 @@ export default class MainScreen extends Component {
 
   _handleSubmit = () => {
     console.log('Success!');
-    SwitchRouter('user');
   }
 
   render() {

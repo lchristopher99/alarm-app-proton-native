@@ -1,24 +1,20 @@
-import React from 'react';
-import { App } from 'proton-native';
-
-// screens 
-import UserScreen from './screens/userScreen';
+import { createSwitchNavigator } from 'react-navigation';
+// screens
 import MainScreen from './screens/mainScreen';
+import UserScreen from './screens/userScreen';
 
-export const SwitchRouter = (route) => {
-  let path = 'main';
-  
-  if (path == 'main') {
-    return (
-      <App>
-        <MainScreen />
-      </App>
-    )
-  } else if (path == 'user') {
-    return (
-      <App>
-        <UserScreen />
-      </App>
-    )
+export const rootNav = createSwitchNavigator({
+  SignedOut: {
+    screen: MainScreen
+  },
+  SignedIn: {
+    screen: UserScreen
   }
-}
+},
+  {
+    headerMode: 'none',
+    title: 'Main',
+    initialRouteName: 'SignedOut'
+  }
+);
+     
